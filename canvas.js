@@ -29,6 +29,7 @@ function init() {
     $('#downBtn').click(iterDown);
     $('#upBtn').click(iterUp);
     $('#goBtn').click(iterGo);
+    $('#jsfSaveBtn').click(saveImage);
 
     $('#jsfTabs a[href="#view"]').click(function(e) {
         e.preventDefault();
@@ -38,7 +39,15 @@ function init() {
         e.preventDefault();
         $(this).tab('show');
     });
+    $('#jsfTabs a[href="#examples"]').click(function(e) {
+        e.preventDefault();
+        $(this).tab('show');
+    });
 
+}
+
+function saveImage() {
+    window.open(canvas.toDataURL('image/png'));
 }
 
 function resizeCanvas() {
