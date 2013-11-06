@@ -84,6 +84,7 @@
             <ul class="nav navbar-nav" id="jsfTabs">
               <li class="active"><a href="#view">View</a></li>
               <li><a href="#edit">Edit</a></li>
+              <li><a href="#examples">Examples</a></li>
             </ul>
           </div><!--/.nav-collapse -->
         </div>
@@ -104,13 +105,22 @@
                     </div>
                 </div>
             </p>
-            <p><canvas id="canvas" style="width: 100%; height: 100%; border:1px solid #000000;">Your browser need update</canvas>
-                <span class="label label-default" id="segmentsLabel">0</span></p>
+            <p>
+                <canvas id="canvas" style="width: 100%; height: 100%; border:1px solid #000000;">Your browser need update</canvas>
+                <span class="text-muted">Segments </span><span class="badge" id="segmentsLabel">0</span>
+                <button type="button" class="btn btn-default btn-xs pull-right" id="jsfSaveBtn">Get image</button>
+            </p>
         </div>
         <div class="tab-pane" id="edit">
             <p><textarea class="form-control" id="samplesedit" rows="24"></textarea></p>
             <p><button type="button" class="btn btn-primary btn-lg btn-block" id="submitBtn">Submit</button></p>
             <p></p>
+        </div>
+        <div class="tab-pane" id="examples">
+            <div class="list-group">
+              <a href="#" class="list-group-item">Sample 1</a>
+              <a href="#" class="list-group-item">Sample 2</a>
+            </div>
         </div>
       </div>
     </div>
