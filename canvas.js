@@ -17,7 +17,7 @@ function init() {
     canvas = document.getElementById('canvas');
     context2d = canvas.getContext('2d');
 
-    canvas.addEventListener('mousewheel', mouseWheel, false);
+    $('#canvas').on('mousewheel', mouseWheel);
     canvas.addEventListener('mousedown', mouseDown, false);
     canvas.addEventListener('mousemove', mouseMove, false);
     canvas.addEventListener('mouseup', mouseUp, false);
@@ -201,11 +201,11 @@ function Draw(offX, offY) {
 }
 
 function getX(e) {
-    return (e.layerX == null) ? e.offsetX : e.layerX;
+    return e.pageX - $('#canvas').offset().left;
 }
 
 function getY(e) {
-    return (e.layerY == null) ? e.offsetY : e.layerY;
+    return e.pageY - $('#canvas').offset().top;
 }
 
 function getOffsetX(x) {
@@ -234,14 +234,14 @@ function mouseMove(e) {
     if(mouseDragged) Draw(getOffsetX(getX(e)), getOffsetY(getY(e)));
 }
 
-function mouseWheel(e) {
+function mouseWheel(e, delta, deltaX, deltaY) {
     if(!mouseDragged) {
         var s = 1;
-        if(e.wheelDeltaY > 0)
-           s =  e.wheelDeltaY/120 * 1.5;
+        if(deltaY > 0)
+           s =  deltaY * 1.5;
 
-        if(e.wheelDeltaY < 0)
-           s = -e.wheelDeltaY/120 / 1.5;
+        if(deltaY < 0)
+           s = -deltaY / 1.5;
 
         var x = getX(e);
         var y = getY(e);
