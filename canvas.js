@@ -44,10 +44,39 @@ function init() {
         $(this).tab('show');
     });
 
+    loadData();
 }
 
 function saveImage() {
     window.open(canvas.toDataURL('image/png'));
+}
+
+function updateLink() {
+    var cc = encodeURIComponent(base64.encode(document.getElementById('samplesedit').value));
+    var url = window.location.protocol + '//' + window.location.host + window.location.pathname + '?s=' + cc;
+
+    $("#jsfLink").attr("href", url);
+}
+
+function loadData() {
+    var q = (function(a) {
+        if (a == "") return {};
+        var b = {};
+        for (var i = 0; i < a.length; ++i)
+        {
+            var p=a[i].split('=');
+            if (p.length != 2) continue;
+            b[p[0]] = decodeURIComponent(p[1].replace(/\+/g, " "));
+        }
+        return b;
+    })(window.location.search.substr(1).split('&'));
+
+    if ("s" in q) {
+        var data = decodeURIComponent(q["s"]);
+        document.getElementById('samplesedit').value = base64.decode(data);
+
+        $('#jsfTabs a[href="#edit"]').tab('show');
+    }
 }
 
 function resizeCanvas() {
@@ -80,6 +109,7 @@ function submit() {
     }
     fractal['samples'] = arrangedSamples;
 
+    updateLink();
     $('#jsfTabs a[href="#view"]').tab('show');
 
     resizeCanvas();
