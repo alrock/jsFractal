@@ -93,26 +93,29 @@
       <!-- Begin page content -->
       <div class="container tab-content">
         <div class="tab-pane active" id="view">
-            <p>
-                <div class="input-group" style="max-width: 200px; margin: 0 auto;">
-                    <div class="input-group-btn">
-                        <button type="button" class="btn btn-primary" id="downBtn">-</button>
-                    </div>
-                    <input type="text" class="form-control" id="iterationEdit" value="1">
-                    <div class="input-group-btn">
-                        <button type="button" class="btn btn-success" id="goBtn">Go</button>
-                        <button type="button" class="btn btn-primary" id="upBtn">+</button>
-                    </div>
+          <div class="panel panel-default">
+            <div class="panel-heading">
+              <div class="input-group" style="max-width: 150px; margin: 0 auto;">
+                <div class="input-group-btn">
+                   <button type="button" class="btn btn-default" id="downBtn"><span class="glyphicon glyphicon-minus"></span></button>
                 </div>
-            </p>
-            <p>
-                <canvas id="canvas" style="width: 100%; height: 100%; border:1px solid #000000;">Your browser need update</canvas>
-                <span class="text-muted">Segments </span><span class="badge" id="segmentsLabel">0</span>
-                <span class="pull-right">
-                  <a href="" id="jsfLink">Link</a>
-                  <button type="button" class="btn btn-default btn-xs" id="jsfSaveBtn">Get image</button>
-                </span>
-            </p>
+                <input type="text" class="form-control" id="iterationEdit" value="1" disabled>
+                <div class="input-group-btn">
+                  <button type="button" class="btn btn-default" id="upBtn"><span class="glyphicon glyphicon-plus"></span></button>
+                  <!--<button type="button" class="btn btn-success" id="goBtn">Go</button>-->
+                </div>
+                <!-- Icons by http://glyphicons.com/ -->
+              </div>
+            </div>
+            <canvas id="canvas" style="width: 100%; height: 100%;">Your browser need update</canvas>
+            <div class="panel-footer">
+              <span class="text-muted">Segments </span><span class="badge" id="segmentsLabel">0</span>
+              <span class="pull-right">
+                <a href="" id="jsfLink">Share link</a>&nbsp;&nbsp;
+                <button type="button" class="btn btn-default btn-xs" id="jsfSaveBtn">Get image</button>
+              </span>
+            </div>
+          </div>
         </div>
         <div class="tab-pane" id="edit">
             <p><textarea class="form-control" id="samplesedit" rows="24"></textarea></p>

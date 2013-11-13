@@ -28,7 +28,7 @@ function init() {
     $('#submitBtn').click(submit);
     $('#downBtn').click(iterDown);
     $('#upBtn').click(iterUp);
-    $('#goBtn').click(iterGo);
+    /* $('#goBtn').click(iterGo); */
     $('#jsfSaveBtn').click(saveImage);
 
     $('#jsfTabs a[href="#view"]').click(function(e) {
@@ -137,6 +137,7 @@ function iterUp() {
     $('#iterationEdit').val(orig);
 }
 
+/*
 function iterGo() {
     var iter = parseInt($('#iterationEdit').val());
     var orig = fractal['iteration'];
@@ -148,6 +149,7 @@ function iterGo() {
     }
     $('#iterationEdit').val(orig);
 }
+*/
 
 function coefs(o, t) {
   //var o = [1, 1, 2, 2]; //опорная линия семпла
