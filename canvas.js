@@ -22,13 +22,15 @@ function init() {
     canvas.addEventListener('mousemove', mouseMove, false);
     canvas.addEventListener('mouseup', mouseUp, false);
 
-    window.addEventListener('resize', resizeCanvas, false);
+    $(window).bind('resize', resizeCanvas);
+    $(window).bind('hashchange', loadData);
+
     resizeCanvas();
 
     $('#submitBtn').click(submit);
     $('#downBtn').click(iterDown);
     $('#upBtn').click(iterUp);
-    /* $('#goBtn').click(iterGo); */
+    $('#jsfIterEdit').keypress(iterGo);
     $('#jsfSaveBtn').click(saveImage);
 
     $('#jsfTabs a[href="#view"]').click(function(e) {
@@ -44,6 +46,8 @@ function init() {
         $(this).tab('show');
     });
 
+    fillExamplesList();
+
     loadData();
 }
 
@@ -52,29 +56,17 @@ function saveImage() {
 }
 
 function updateLink() {
-    var cc = encodeURIComponent(base64.encode(document.getElementById('samplesedit').value));
-    var url = window.location.protocol + '//' + window.location.host + window.location.pathname + '?s=' + cc;
+    var cc = document.getElementById('samplesedit').value.replace(/[ \t\r\n]/g, '');
+    cc = encodeURIComponent(base64.encode(cc));
+    var url = window.location.protocol + '//' + window.location.host + window.location.pathname + '#' + cc;
 
     $("#jsfLink").attr("href", url);
 }
 
 function loadData() {
-    var q = (function(a) {
-        if (a == "") return {};
-        var b = {};
-        for (var i = 0; i < a.length; ++i)
-        {
-            var p=a[i].split('=');
-            if (p.length != 2) continue;
-            b[p[0]] = decodeURIComponent(p[1].replace(/\+/g, " "));
-        }
-        return b;
-    })(window.location.search.substr(1).split('&'));
-
-    if ("s" in q) {
-        var data = decodeURIComponent(q["s"]);
-        document.getElementById('samplesedit').value = base64.decode(data);
-
+    if (location.hash.length > 0) {
+        var data = decodeURIComponent(location.hash.substr(1));
+        document.getElementById('samplesedit').value = prettySamples(base64.decode(data));
         $('#jsfTabs a[href="#edit"]').tab('show');
     }
 }
@@ -94,7 +86,7 @@ function submit() {
 
     /* Prepare first step */
     fractal['iteration'] = 1;
-    $('#iterationEdit').val(1);
+    $('#jsfIterEdit').val(1);
     fractal['drawArrays'] = [[]];
     var arr = fractal['drawArrays'][0];
     var arrangedSamples = [];
@@ -116,40 +108,41 @@ function submit() {
 }
 
 function iterDown() {
-    var iter = parseInt($('#iterationEdit').val());
+    var iter = parseInt($('#jsfIterEdit').val());
     var orig = fractal['iteration'];
     if (iter != NaN && iter > 1) {
         iterate(--orig);
         fractal['iteration'] = orig;
         Draw(offsetX, offsetY);
     }
-    $('#iterationEdit').val(orig);
+    $('#jsfIterEdit').val(orig);
 }
 
 function iterUp() {
-    var iter = parseInt($('#iterationEdit').val());
+    var iter = parseInt($('#jsfIterEdit').val());
     var orig = fractal['iteration'];
     if (iter != NaN) {
         iterate(++orig);
         fractal['iteration'] = orig;
         Draw(offsetX, offsetY);
     }
-    $('#iterationEdit').val(orig);
+    $('#jsfIterEdit').val(orig);
 }
 
-/*
-function iterGo() {
-    var iter = parseInt($('#iterationEdit').val());
+function iterGo(e) {
+    if (e.which == 13) event.preventDefault();
+    else return;
+
+    var iter = parseInt($('#jsfIterEdit').val());
     var orig = fractal['iteration'];
-    if (iter != NaN)  {
+    if (!isNaN(iter)) {
         orig = iter;
         iterate(orig);
         fractal['iteration'] = orig;
         Draw(offsetX, offsetY);
     }
-    $('#iterationEdit').val(orig);
+    $('#jsfIterEdit').val(orig);
 }
-*/
 
 function coefs(o, t) {
   //var o = [1, 1, 2, 2]; //опорная линия семпла

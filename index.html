@@ -61,6 +61,10 @@
         padding-right: 15px;
       }
 
+      #samplesedit {
+        font-family: Consolas, Monaco, Lucida Console, Liberation Mono, DejaVu Sans Mono, Courier New, monospace;
+      }
+
       code {
         font-size: 80%;
       }
@@ -99,7 +103,7 @@
                 <div class="input-group-btn">
                    <button type="button" class="btn btn-default" id="downBtn"><span class="glyphicon glyphicon-minus"></span></button>
                 </div>
-                <input type="text" class="form-control" id="iterationEdit" value="1" disabled>
+                <input type="text" class="form-control" id="jsfIterEdit" value="1">
                 <div class="input-group-btn">
                   <button type="button" class="btn btn-default" id="upBtn"><span class="glyphicon glyphicon-plus"></span></button>
                   <!--<button type="button" class="btn btn-success" id="goBtn">Go</button>-->
@@ -123,9 +127,7 @@
             <p></p>
         </div>
         <div class="tab-pane" id="examples">
-            <div class="list-group">
-              <a href="#" class="list-group-item">Sample 1</a>
-              <a href="#" class="list-group-item">Sample 2</a>
+            <div class="list-group" id="jsfExamplesList">
             </div>
         </div>
       </div>
@@ -144,6 +146,7 @@
     <script src="libs/jquery.mousewheel.js"></script>
     <script src="libs/base64.js"></script>
     <script src="https://netdna.bootstrapcdn.com/bootstrap/3.0.1/js/bootstrap.min.js"></script>
+    <script src="examples.js"></script>
     <script src="canvas.js"></script>
   </body>
 </html>
