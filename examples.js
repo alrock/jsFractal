@@ -73,6 +73,16 @@ var examples = [
 },
 
 {
+    title: 'Квадратичная кривая Коха (Quadratic Koch curve)',
+    samples: 'eyJzYW1wbGVzIjpbeyJpZCI6MSwiYmFzZWxpbmUiOlstMjAwLDAsMjAwLDBdLCJzZWdtZW50cyI6WzEsMCwtMjAwLDAsLTEwMCwwLDEsMCwtMTAwLDAsLTEwMCwxMDAsMSwwLC0xMDAsMTAwLDAsMTAwLDEsMCwwLDEwMCwwLDAsMSwwLDAsMCwwLC0xMDAsMSwwLDAsLTEwMCwxMDAsLTEwMCwxLDAsMTAwLC0xMDAsMTAwLDAsMSwwLDEwMCwwLDIwMCwwXX1dfQ%3D%3D'
+},
+
+{
+    title: 'Квадратичная снежинка Коха (Quadratic Koch snowflake)',
+    samples: 'eyJzYW1wbGVzIjpbeyJpZCI6MSwiYmFzZWxpbmUiOlstMTAwLDAsMTAwLDBdLCJzZWdtZW50cyI6WzIsMCwtMTAwLC0xMDAsMTAwLC0xMDAsMiwwLDEwMCwtMTAwLDEwMCwxMDAsMiwwLDEwMCwxMDAsLTEwMCwxMDAsMiwwLC0xMDAsMTAwLC0xMDAsLTEwMF19LHsiaWQiOjIsImJhc2VsaW5lIjpbLTIwMCwwLDIwMCwwXSwic2VnbWVudHMiOlsyLDAsLTIwMCwwLC0xMDAsMCwyLDAsLTEwMCwwLC0xMDAsMTAwLDIsMCwtMTAwLDEwMCwwLDEwMCwyLDAsMCwxMDAsMCwwLDIsMCwwLDAsMCwtMTAwLDIsMCwwLC0xMDAsMTAwLC0xMDAsMiwwLDEwMCwtMTAwLDEwMCwwLDIsMCwxMDAsMCwyMDAsMF19XX0%3D'
+},
+
+{
     title: 'Кривая Госпера (Gosper curve)',
     samples: 'eyJzYW1wbGVzIjpbeyJpZCI6MSwiYmFzZWxpbmUiOlstMTUwLC04Ni42LDEwMCwwXSwic2VnbWVudHMiOlsxLDAsLTE1MCwtODYuNiwtNTAsLTg2LjYsMSwwLDAsMCwtNTAsLTg2LjYsMSwwLC0xMDAsMCwwLDAsMSwwLC0xMDAsMCwtMTUwLDg2LjYsMSwwLC0xNTAsODYuNiwtNTAsODYuNiwxLDAsLTUwLDg2LjYsNTAsODYuNiwxLDAsMTAwLDAsNTAsODYuNl19XX0%3D'
 },
